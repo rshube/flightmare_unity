@@ -49,7 +49,7 @@ namespace RPGFlightmare
     [HideInInspector]
     public const string client_ip_pref_key = "client_ip";
     [HideInInspector]
-    public const int connection_timeout_seconds_default = 5;
+    public const int connection_timeout_seconds_default = 60;
     [HideInInspector]
     public string rpg_dsim_version = "";
 
@@ -104,6 +104,9 @@ namespace RPGFlightmare
     // Only execute once.
     public void Start()
     {
+      // Time.timeScale = 2f;
+      // Time.fixedDeltaTime = 0.2f * Time.timeScale;
+
       // Application.targetFrameRate = 9999;
       // Make sure that this gameobject survives across scene reloads
       DontDestroyOnLoad(this.gameObject);
@@ -522,12 +525,12 @@ namespace RPGFlightmare
             // apply translation and rotation;
             var translation = ListToVector3(vehicle_i.position);
             var quaternion = ListToQuaternion(vehicle_i.rotation);
-            Debug.Log(vehicle_i.ID);
-            Debug.Log(vehicle_i.rotation[0]);
-            Debug.Log(vehicle_i.rotation[1]);
-            Debug.Log(vehicle_i.rotation[2]);
-            Debug.Log(vehicle_i.rotation[3]);
-            Debug.Log(quaternion.eulerAngles);
+            // Debug.Log(vehicle_i.ID);
+            // Debug.Log(vehicle_i.rotation[0]);
+            // Debug.Log(vehicle_i.rotation[1]);
+            // Debug.Log(vehicle_i.rotation[2]);
+            // Debug.Log(vehicle_i.rotation[3]);
+            // Debug.Log(quaternion.eulerAngles);
 
             // Quaternion To Matrix conversion failed because input Quaternion(=quaternion) is invalid
             // create valid Quaternion from Euler angles
