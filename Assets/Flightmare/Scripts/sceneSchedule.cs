@@ -9,11 +9,11 @@ namespace RPGFlightmare
 {
   public class Scenes
   {
-    // public const string SCENE_WAREHOUSE = "Environments/Warehouse/Scenes/DemoScene";
-    // public const string SCENE_GARAGE = "Environments/Garage/Scenes/DemoScene";
-    // public const string SCENE_TUNNELS = "Environments/Tunnels/Scenes/DemoSceneSimple";
-    // public const string SCENE_NATUREFOREST = "Environments/Forest/Scenes/DemoScene";
-    // public const string SCENE_INDUSTRIAL = "Environments/Industrial/Scenes/DemoScene";
+    public const string SCENE_WAREHOUSE = "Environments/Warehouse/Scenes/SmallWarehouse";
+    public const string SCENE_GARAGE = "Environments/Garage/Scenes/DemoScene";
+    public const string SCENE_TUNNELS = "Environments/Tunnels/Scenes/DemoSceneSimple";
+    public const string SCENE_NATUREFOREST = "Environments/Forest/Scenes/DemoScene";
+    public const string SCENE_INDUSTRIAL = "Environments/Industrial/Scenes/DemoScene";
     public const string SCENE_SINGLE_ROOM = "Environments/Industrial/Scenes/SingleRoom";
     //
     public List<string> scenes_list = new List<string>();
@@ -22,7 +22,7 @@ namespace RPGFlightmare
     public Scenes()
     {
       // scenes_list.Add(SCENE_INDUSTRIAL);
-      // scenes_list.Add(SCENE_WAREHOUSE);
+      scenes_list.Add(SCENE_WAREHOUSE);
       // scenes_list.Add(SCENE_GARAGE); 
       // scenes_list.Add(SCENE_NATUREFOREST);
       // scenes_list.Add(SCENE_TUNNELS);
