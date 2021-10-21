@@ -67,6 +67,7 @@ namespace RPGFlightmare
     // public bool outputLandmarkLocations = false;
     public GameObject HD_camera;
     public GameObject quad_template;  // Main vehicle template
+    public GameObject lead_quad_template;
     public GameObject gate_template;  // Main vehicle template
     public GameObject splash_screen;
     public GameObject PointCloudSaved;
@@ -501,7 +502,7 @@ namespace RPGFlightmare
         if (Input.GetKeyDown(KeyCode.Space))
         {
           activate_vehicle_cam += 1;
-          if (activate_vehicle_cam > settings.numVehicles * settings.numCameras)
+          if (activate_vehicle_cam >= settings.numVehicles * settings.numCameras)
           {
             activate_vehicle_cam = 0;
           }
@@ -555,7 +556,15 @@ namespace RPGFlightmare
           }
           // Debug.Log("xxxxxxxxx" + vehicle_i.ID);
           // Apply translation, rotation, and scaling to vehicle
-          GameObject vehicle_obj = internal_state.getGameobject(vehicle_i.ID, quad_template);
+          GameObject vehicle_obj;
+          if (vehicle_i.leader)
+          {
+            vehicle_obj = internal_state.getGameobject(vehicle_i.ID, lead_quad_template);
+          } 
+          else
+          {
+            vehicle_obj = internal_state.getGameobject(vehicle_i.ID, quad_template);
+          }
           vehicle_obj.transform.SetPositionAndRotation(ListToVector3(vehicle_i.position), ListToQuaternion(vehicle_i.rotation));
           vehicle_obj.transform.localScale = ListToVector3(vehicle_i.size);
         }
@@ -628,10 +637,18 @@ namespace RPGFlightmare
       if (internal_state.readyToRender)
       {
         int vehicle_count = 0;
-        foreach (var vehicl_i in settings.vehicles)
+        foreach (var vehicle_i in settings.vehicles)
         {
           vehicle_count += 1;
-          GameObject vehicle_obj = internal_state.getGameobject(vehicl_i.ID, quad_template);
+          GameObject vehicle_obj;
+          if (vehicle_i.leader)
+          {
+            vehicle_obj = internal_state.getGameobject(vehicle_i.ID, lead_quad_template);
+          } 
+          else
+          {
+            vehicle_obj = internal_state.getGameobject(vehicle_i.ID, quad_template);
+          }
           // Check if object has collided (requires that collider hook has been setup on object previously.)
           pub_message.pub_vehicles[vehicle_count - 1].collision = vehicle_obj.GetComponent<collisionHandler>().hasCollided;
         }
@@ -710,7 +727,15 @@ namespace RPGFlightmare
       // Disable unneeded vehicle colliders
       var nonRaycastingVehicles = settings.vehicles.Where(obj => !obj.hasCollisionCheck);
       foreach (Vehicle_t vehicle in nonRaycastingVehicles){
-          ObjectState_t internal_object_state = internal_state.getWrapperObject(vehicle.ID, quad_template);
+          ObjectState_t internal_object_state;
+          if (vehicle.leader)
+          {
+            internal_object_state = internal_state.getWrapperObject(vehicle.ID, lead_quad_template);
+          } 
+          else
+          {
+            internal_object_state = internal_state.getWrapperObject(vehicle.ID, quad_template);
+          }
           // Get vehicle collider
           Collider vehicleCollider = internal_object_state.gameObj.GetComponent<Collider>();
           vehicleCollider.enabled = false;
@@ -742,7 +767,15 @@ namespace RPGFlightmare
       foreach (var vehicle in settings.vehicles)
       {
         Debug.Log("vehicle id : " + vehicle.ID);
-        GameObject obj = internal_state.getGameobject(vehicle.ID, quad_template);
+        GameObject obj;
+        if (vehicle.leader)
+          {
+            obj = internal_state.getGameobject(vehicle.ID, lead_quad_template);
+          } 
+          else
+          {
+            obj = internal_state.getGameobject(vehicle.ID, quad_template);
+          }
         obj.transform.SetPositionAndRotation(ListToVector3(vehicle.position), ListToQuaternion(vehicle.rotation));
         obj.transform.localScale = ListToVector3(vehicle.size);
       }
@@ -838,7 +871,15 @@ namespace RPGFlightmare
           vehicle_count += 1;
           // Length of RGB slice
           // string camera_ID = cam_config.ID;
-          GameObject vehicle_obj = internal_state.getGameobject(vehicle_i.ID, quad_template);
+          GameObject vehicle_obj;
+          if (vehicle_i.leader)
+          {
+            vehicle_obj = internal_state.getGameobject(vehicle_i.ID, lead_quad_template);
+          } 
+          else
+          {
+            vehicle_obj = internal_state.getGameobject(vehicle_i.ID, quad_template);
+          }
           //
           GameObject obj = internal_state.getGameobject(cam_config.ID, HD_camera);
           var current_cam = obj.GetComponent<Camera>();

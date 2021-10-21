@@ -152,6 +152,7 @@ namespace MessageSpec
     public List<Lidar_t> lidars;
     public bool hasCollisionCheck = true;
     public bool hasVehicleCollision = false;
+    public bool leader = false;
   }
 
   // Generic object class for decoding the ZMQ messages.

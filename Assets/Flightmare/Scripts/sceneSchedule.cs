@@ -9,7 +9,7 @@ namespace RPGFlightmare
 {
   public class Scenes
   {
-    public const string SCENE_WAREHOUSE = "Environments/Warehouse/Scenes/DemoScene";
+    public const string SCENE_WAREHOUSE = "Environments/Warehouse/Scenes/SmallWarehouse";
     public const string SCENE_GARAGE = "Environments/Garage/Scenes/DemoScene";
     public const string SCENE_TUNNELS = "Environments/Tunnels/Scenes/DemoSceneSimple";
     public const string SCENE_NATUREFOREST = "Environments/Forest/Scenes/DemoScene";
