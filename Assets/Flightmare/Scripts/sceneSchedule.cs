@@ -9,22 +9,24 @@ namespace RPGFlightmare
 {
   public class Scenes
   {
-    public const string SCENE_WAREHOUSE = "Environments/Warehouse/Scenes/DemoScene";
+    public const string SCENE_WAREHOUSE = "Environments/Warehouse/Scenes/SmallWarehouse";
     public const string SCENE_GARAGE = "Environments/Garage/Scenes/DemoScene";
     public const string SCENE_TUNNELS = "Environments/Tunnels/Scenes/DemoSceneSimple";
     public const string SCENE_NATUREFOREST = "Environments/Forest/Scenes/DemoScene";
     public const string SCENE_INDUSTRIAL = "Environments/Industrial/Scenes/DemoScene";
+    public const string SCENE_SINGLE_ROOM = "Environments/Industrial/Scenes/SingleRoom";
     //
     public List<string> scenes_list = new List<string>();
     public int default_scene_id;
     public int num_scene; // number of scenes in total
     public Scenes()
     {
-      scenes_list.Add(SCENE_INDUSTRIAL);
-      scenes_list.Add(SCENE_WAREHOUSE);
-      scenes_list.Add(SCENE_GARAGE); 
-      scenes_list.Add(SCENE_NATUREFOREST);
-      scenes_list.Add(SCENE_TUNNELS);
+      // scenes_list.Add(SCENE_INDUSTRIAL);
+      // scenes_list.Add(SCENE_WAREHOUSE);
+      // scenes_list.Add(SCENE_GARAGE); 
+      // scenes_list.Add(SCENE_NATUREFOREST);
+      // scenes_list.Add(SCENE_TUNNELS);
+      scenes_list.Add(SCENE_SINGLE_ROOM);
 
       default_scene_id = 0;
       num_scene = scenes_list.Count;
@@ -53,29 +55,34 @@ namespace RPGFlightmare
       }
     }
 
-    public void loadIndustrial()
+    // public void loadIndustrial()
+    // {
+    //   loadScene(0, true);
+    // }
+
+    public void loadSingleRoom()
     {
       loadScene(0, true);
     }
 
-    public void loadWareHouse()
-    {
-      loadScene(1, true);
-    }
-    public void loadGarage()
-    {
-      loadScene(2, true);
-    }
+    // public void loadWareHouse()
+    // {
+    //   loadScene(1, true);
+    // }
+    // public void loadGarage()
+    // {
+    //   loadScene(2, true);
+    // }
 
-    public void loadForest()
-    {
-      loadScene(3, true);
-    }
+    // public void loadForest()
+    // {
+    //   loadScene(3, true);
+    // }
 
-    public void loadTunnel()
-    {
-      loadScene(4, true);
-    }
+    // public void loadTunnel()
+    // {
+    //   loadScene(4, true);
+    // }
 
 
 
