@@ -46,12 +46,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd1f9fe92fe2ed4d877a6ce1da9d8a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pose_client_port: 10253
-  video_client_port: 10254
   rpg_dsim_version: 
   client_ip: 127.0.0.1
+  pose_client_port: 10253
+  video_client_port: 10254
   HD_camera: {fileID: 2060161435559445602, guid: 7cfb8a134551f154996646e3ed7f5153, type: 3}
   quad_template: {fileID: 2153435341231490519, guid: 8b826a7c5dffaf04d99fa3f39f8d9060, type: 3}
+  lead_quad_template: {fileID: 2153435341231490519, guid: 5409dfe612f4d1db89cdf02113dad417, type: 3}
   gate_template: {fileID: 734509419429374909, guid: 47a07cecde5e143f3af18a4feb257bb9, type: 3}
   splash_screen: {fileID: 0}
   PointCloudSaved: {fileID: 0}
@@ -89,10 +90,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera_template: {fileID: 2060161435559445602, guid: 7cfb8a134551f154996646e3ed7f5153, type: 3}
-  time_lines:
-  - {fileID: 2955433088038018134, guid: e930915fa6e68f50db77e516abc6d00e, type: 3}
-  - {fileID: 1129091183553144169, guid: 72ee0355cb883223d8e0e7eed535bd51, type: 3}
-  - {fileID: 8994653877548046176, guid: ac194b2e943bce649ba384717ded9d8e, type: 3}
 --- !u!114 &1181571167
 MonoBehaviour:
   m_ObjectHideFlags: 0

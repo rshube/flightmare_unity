@@ -22,7 +22,7 @@ namespace RPGFlightmare
     public Scenes()
     {
       // scenes_list.Add(SCENE_INDUSTRIAL);
-      scenes_list.Add(SCENE_WAREHOUSE);
+      // scenes_list.Add(SCENE_WAREHOUSE);
       // scenes_list.Add(SCENE_GARAGE); 
       // scenes_list.Add(SCENE_NATUREFOREST);
       // scenes_list.Add(SCENE_TUNNELS);

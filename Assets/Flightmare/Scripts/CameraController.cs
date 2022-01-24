@@ -49,7 +49,7 @@ namespace RPGFlightmare
     [HideInInspector]
     public const string client_ip_pref_key = "client_ip";
     [HideInInspector]
-    public const int connection_timeout_seconds_default = 60;
+    public const int connection_timeout_seconds_default = 300;
     [HideInInspector]
     public string rpg_dsim_version = "";
 
@@ -490,10 +490,11 @@ namespace RPGFlightmare
         var thirdPV_cam = tpv_obj.GetComponent<Camera>();
         // hard coded parameters for third person camera view
         thirdPV_cam.fieldOfView = 90.0f;
-        thirdPV_cam_offset = new Vector3(0.0f, 2.0f, -4.0f);
+        //thirdPV_cam_offset = new Vector3(0.0f, 2.0f, -4.0f);
+        thirdPV_cam_offset = new Vector3(-4.0f, 2.0f, 0.0f);
         GameObject main_vehicle = internal_state.getGameobject(settings.mainVehicle.ID, quad_template);
         thirdPV_cam.transform.position = main_vehicle.transform.position + thirdPV_cam_offset;
-        thirdPV_cam.transform.eulerAngles = new Vector3(20, 0, 0);
+        thirdPV_cam.transform.eulerAngles = new Vector3(20, 90, 0);
       }
     }
 
